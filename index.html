@@ -1,0 +1,283 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Eye Optical Appointment Management System</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="static/styles.css"> <!-- Ensure this path is correct -->
+    <style>
+        body {
+            background-color: #e8f5e9; /* Light green background */
+            color: #2e7d32; /* Dark green text */
+            font-family: 'Roboto', sans-serif;
+        }
+        #logo {
+            max-width: 200px; /* Adjust as necessary */
+            margin: 20px auto;
+            display: block;
+        }
+        h1, h2 {
+            color: #1b5e20; /* Darker green for headings */
+        }
+        a {
+            color: #388e3c; /* Green color for links */
+        }
+        a:hover {
+            color: #1b5e20; /* Darker green on hover */
+        }
+        .btn-primary {
+            background-color: #4caf50; /* Green button */
+            border-color: #388e3c; /* Darker green border */
+        }
+        .btn-primary:hover {
+            background-color: #388e3c; /* Darker green on hover */
+            border-color: #1b5e20; /* Even darker green on hover */
+        }
+        .alert {
+            border-radius: 5px;
+        }
+        footer {
+            background-color: #c8e6c9; /* Light green footer */
+            padding: 10px;
+        }
+        .faq {
+            margin-top: 30px;
+        }
+    </style>
+</head>
+<body>
+
+    <header class="container text-center">
+        <img id="logo" src="https://i.pinimg.com/564x/70/f9/10/70f91099be4e835843c2b74495f12795.jpg" alt="Eye Optical Logo">
+        <h1>Welcome to Eye Optical</h1>
+        <nav>
+            <ul class="list-inline">
+                <li class="list-inline-item"><a href="#home">Home</a></li>
+                <li class="list-inline-item"><a href="#about">About Us</a></li>
+                <li class="list-inline-item"><a href="#services">Services</a></li>
+                <li class="list-inline-item"><a href="#appointment">Book an Appointment</a></li>
+                <li class="list-inline-item"><a href="#faq">FAQs</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main class="container">
+        <section id="home">
+            <h2>Our Vision</h2>
+            <p>Your vision is our mission. We provide the best optical services.</p>
+        </section>
+
+        <section id="about">
+            <h2>About Our Service</h2>
+            <p>Welcome to the Eye Optical Appointment Management System! We provide a seamless way to book and manage your eye care appointments...</p>
+        </section>
+
+        <section id="appointment">
+            <h2>Book an Appointment</h2>
+            <form id="booking-form">
+                <div class="form-row">
+                    <div class="form-group col-md-6">
+                        <label for="patient-name">Full Name:</label>
+                        <input type="text" class="form-control" id="patient-name" name="fullName" required>
+                    </div>
+                    <div class="form-group col-md-6">
+                        <label for="age">Age:</label>
+                        <input type="number" class="form-control" id="age" name="age" required>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label for="appointment-date">Appointment Date:</label>
+                    <input type="date" class="form-control" id="appointment-date" name="appointmentDate" required>
+                </div>
+                <div class="form-group">
+                    <label for="appointment-time">Appointment Time:</label>
+                    <select class="form-control" id="appointment-time" name="appointmentTime" required>
+                        <option value="09:00 AM">9:00 AM</option>
+                        <option value="09:30 AM">9:30 AM</option>
+                        <option value="10:00 AM">10:00 AM</option>
+                        <option value="10:30 AM">10:30 AM</option>
+                        <option value="11:00 AM">11:00 AM</option>
+                        <option value="11:30 AM">11:30 AM</option>
+                        <option value="12:00 PM">12:00 PM</option>
+                        <option value="12:30 PM">12:30 PM</option>
+                        <option value="01:00 PM">1:00 PM</option>
+                        <option value="01:30 PM">1:30 PM</option>
+                        <option value="02:00 PM">2:00 PM</option>
+                        <option value="02:30 PM">2:30 PM</option>
+                        <option value="03:00 PM">3:00 PM</option>
+                        <option value="03:30 PM">3:30 PM</option>
+                        <option value="04:00 PM">4:00 PM</option>
+                        <option value="04:30 PM">4:30 PM</option>
+                        <option value="05:00 PM">5:00 PM</option>
+                        <option value="05:30 PM">5:30 PM</option>
+                        <option value="06:00 PM">6:00 PM</option>
+                        <option value="06:30 PM">6:30 PM</option>
+                        <option value="07:00 PM">7:00 PM</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label for="appointment-day">Appointment Day:</label>
+                    <select class="form-control" id="appointment-day" name="appointmentDay" required>
+                        <option value="Monday">Monday</option>
+                        <option value="Tuesday">Tuesday</option>
+                        <option value="Wednesday">Wednesday</option>
+                        <option value="Thursday">Thursday</option>
+                        <option value="Friday">Friday</option>
+                        <option value="Saturday">Saturday</option>
+                    </select>
+                </div>
+                <button type="submit" class="btn btn-primary btn-block">Book Appointment</button>
+            </form>
+            <div id="confirmation" class="alert alert-success" style="display:none;">Appointment booked successfully!</div>
+            <div id="conflict" class="alert alert-danger" style="display:none;">Conflict detected! Time slot is already booked.</div>
+        </section>
+
+        <section id="services">
+            <h2>Our Services</h2>
+            <p>Check out our wide range of optical services.</p>
+        </section>
+
+        <section>
+            <h2>Scheduled Appointments</h2>
+            <div class="appointments-table">
+                <table class="table table-bordered">
+                    <thead>
+                        <tr>
+                            <th>Patient Name</th>
+                            <th>Age</th>
+                            <th>Date</th>
+                            <th>Time</th>
+                            <th>Day</th>
+                            <th>Status</th>
+                        </tr>
+                    </thead>
+                    <tbody id="appointments-list">
+                        <tr>
+                            <td>John Smith</td>
+                            <td>30</td>
+                            <td>2024-11-25</td>
+                            <td>9:00 AM</td>
+                            <td>Monday</td>
+                            <td>Confirmed</td>
+                        </tr>
+                        <tr>
+                            <td>John Anderson</td>
+                            <td>35</td>
+                            <td>2024-11-26</td>
+                            <td>10:30 AM</td>
+                            <td>Tuesday</td>
+                            <td>Confirmed</td>
+                        </tr>
+                        <tr>
+                            <td>Michael Williams</td>
+                            <td>28</td>
+                            <td>2024-11-27</td>
+                            <td>1:00 PM</td>
+                            <td>Wednesday</td>
+                            <td>Pending</td>
+                        </tr>
+                        <tr>
+                            <td>Kevin Anderson</td>
+                            <td>40</td>
+                            <td>2024-10-31</td>
+                            <td>11:00 AM</td>
+                            <td>Thursday</td>
+                            <td>Confirmed</td>
+                        </tr>
+                        <tr>
+                            <td>Joshua Rodriguez</td>
+                            <td>33</td>
+                            <td>2024-11-28</td>
+                            <td>2:00 PM</td>
+                            <td>Friday</td>
+                            <td>Pending</td>
+                        </tr>
+                        <tr>
+                            <td>Joseph Andrew</td>
+                            <td>36</td>
+                            <td>2024-11-29</td>
+                            <td>3:00 PM</td>
+                            <td>Saturday</td>
+                            <td>Pending</td>
+                        </tr>
+                        <tr>
+                            <td>Adam Johnson</td>
+                            <td>29</td>
+                            <td>2024-11-30</td>
+                            <td>4:00 PM</td>
+                            <td>Monday</td>
+                            <td>Confirmed</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </section>
+
+        <section id="faq" class="faq">
+            <h2>Frequently Asked Questions</h2>
+            <h5>1. How can I book an appointment?</h5>
+            <p>You can book an appointment by filling out the form above.</p>
+            <h5>2. What should I bring to my appointment?</h5>
+            <p>Please bring your previous eye prescription and any relevant medical records.</p>
+            <h5>3. Can I cancel my appointment?</h5>
+            <p>Yes, you can cancel your appointment by contacting us at least 24 hours in advance.</p>
+        </section>
+    </main>
+
+    <footer class="text-center">
+        <p>&copy; 2024 Eye Optical. All rights reserved.</p>
+    </footer>
+
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    <script>
+        $(document).ready(function() {
+            $('#booking-form').on('submit', function(event) {
+                event.preventDefault();
+                const name = $('#patient-name').val();
+                const age = $('#age').val();
+                const date = $('#appointment-date').val();
+                const time = $('#appointment-time').val();
+                const day = $('#appointment-day').val();
+
+                // Check for conflicts
+                const existingAppointments = [];
+                $('#appointments-list tr').each(function() {
+                    const row = $(this);
+                    existingAppointments.push({
+                        date: row.find('td:eq(2)').text(),
+                        time: row.find('td:eq(3)').text(),
+                    });
+                });
+
+                const conflict = existingAppointments.some(appointment => 
+                    appointment.date === date && appointment.time === time
+                );
+
+                if (conflict) {
+                    $('#conflict').show();
+                    $('#confirmation').hide();
+                } else {
+                    $('#appointments-list').append(`
+                        <tr>
+                            <td>${name}</td>
+                            <td>${age}</td>
+                            <td>${date}</td>
+                            <td>${time}</td>
+                            <td>${day}</td>
+                            <td>Pending</td>
+                        </tr>
+                    `);
+                    $('#confirmation').show();
+                    $('#conflict').hide();
+                    $(this).trigger('reset'); // Reset the form
+                }
+            });
+        });
+    </script>
+</body>
+</html>
